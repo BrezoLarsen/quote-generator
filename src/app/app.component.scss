@@ -16,44 +16,6 @@
     place-items: center;
     padding: 100px 0;
     box-sizing: border-box;
-    &-quote {
-      max-width: 650px;
-      padding-left: 100px;
-      border-left: 8px solid #F7DF94;
-      font-size: 36px;
-      line-height: 120%;
-      color: #000;
-    }
-    &-author {
-      width: 540px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 50px 30px;
-      text-align: left;
-      font-size: 24px;
-      font-weight: bold;
-      color: #4F4F4F;
-      cursor: pointer;
-      &-position {
-        font-size: 14px;
-        font-weight: 500;
-        color: #828282;
-      }
-      span {
-        display: none;
-      }
-      &:hover {
-        background: #333333;
-        color: #F2F2F2;
-        &-position {
-          color: #F2F2F2;
-        }
-        span {
-          display: block;
-        }
-      }
-    }
   }
   &__footer {
     text-align: center;
