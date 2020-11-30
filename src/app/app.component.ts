@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       quoteGenre: ''
   };
 
-  constructor(private apiService: ApiService) {}
+  constructor(public apiService: ApiService) {}
 
   ngOnInit() {
     this.getRandomQuote();
@@ -27,4 +27,9 @@ export class AppComponent implements OnInit {
       this.quote = data;
     });
   }
+
+  backToList() {
+    this.apiService.hasAuthor = false;
+  }
+
 }

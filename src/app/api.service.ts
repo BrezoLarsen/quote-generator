@@ -9,6 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
+  public quotes: [] = [];
+  hasAuthor: boolean = false;
+
   constructor(private httpClient: HttpClient) { }
 
   public getRandomQuotes(){
@@ -29,5 +32,12 @@ export class ApiService {
           return data.quotes;
       })
     );
+  }
+
+  getAuthorQuote(author) {
+    this.hasAuthor = true;
+    this.getAuthorQuotes(author).subscribe((data)=>{
+      this.quotes = data;
+    });
   }
 }

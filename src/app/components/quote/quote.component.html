@@ -2,7 +2,7 @@
   <div class="quote">
     “{{quote.quoteText}}”
   </div>
-  <div class="quote__author" (click)="getAuthorQuote(quote.quoteAuthor)">
+  <div *ngIf="showAuthor" class="quote__author" (click)="apiService.getAuthorQuote(quote.quoteAuthor)">
     <div>
       {{quote.quoteAuthor}} <div class="quote__author-position">{{quote.quoteGenre}}</div>
     </div>

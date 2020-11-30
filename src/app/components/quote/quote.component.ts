@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Quote } from '../../quote';
 
@@ -7,20 +7,11 @@ import { Quote } from '../../quote';
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.scss']
 })
-export class QuoteComponent implements OnInit {
+export class QuoteComponent {
 
   @Input() quote: Quote;
-  public quotes: [] = [];
+  @Input() showAuthor: boolean = true;
 
-  constructor(private apiService: ApiService) { }
-
-  ngOnInit(): void {
-  }
-
-  getAuthorQuote(author) {
-    this.apiService.getAuthorQuotes(author).subscribe((data)=>{
-      this.quotes = data;
-    });
-  }
+  constructor(public apiService: ApiService) { }
 
 }

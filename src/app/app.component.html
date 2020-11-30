@@ -1,9 +1,18 @@
 <div class="main">
-  <div class="main__header" (click)="getRandomQuote()">
+  <div *ngIf="!apiService.hasAuthor" class="main__header" (click)="getRandomQuote()">
     refresh <span class="material-icons">sync</span>
   </div>
-  <div class="main__content">
-    <app-quote [quote]="quote"></app-quote>
+  <div *ngIf="apiService.hasAuthor" class="main__header" (click)="backToList()">Back</div>
+  <div class="main__content" [ngClass]="{'is-height-auto' : apiService.hasAuthor}">
+    <div *ngIf="!apiService.hasAuthor">
+      <app-quote [quote]="quote"></app-quote>
+    </div>
+    <div *ngIf="apiService.hasAuthor">
+      <div class="main__author-title">{{quote.quoteAuthor}}</div>
+      <div *ngFor="let quote of apiService.quotes">
+        <app-quote [quote]="quote" [showAuthor]=false></app-quote>
+      </div>
+    </div>
   </div>
   <div class="main__footer">
     Made with <span class="material-icons icon-heart">favorite</span> by <a href="https://devchallenges.io/profile/CA4R45moGF3poY1o6OW6" target="_blank">@Brezo</a> for <a href="https://devchallenges.io/" target="_blank"> @DevChallenges.io</a>
